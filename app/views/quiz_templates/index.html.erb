@@ -1,0 +1,59 @@
+<h1>
+  List of all quizzes
+</h1>
+
+<hr>
+
+<article>
+  <header>
+    <h2>
+      Add a new quiz
+    </h2>
+  </header>
+
+  <form action="/insert_quiz" method="post">
+    <div>
+      <label for="topic_box">
+        Topic
+      </label>
+
+      <input type="text" id="topic_box" name="query_topic">
+    </div>
+
+    <div>
+      <label for="user_id_box">
+        User
+      </label>
+
+      <input type="text" id="user_id_box" name="query_user_id">
+    </div>
+
+    <div>
+      <label for="score_box">
+        Score
+      </label>
+
+      <input type="text" id="score_box" name="query_score">
+    </div>
+
+    <button type="submit">
+      Create quiz
+    </button>
+  </form>
+</article>
+
+<hr>
+
+<article>
+  <ul>
+    <% @list_of_quizzes.each do |a_quiz| %>
+      <li>
+        <a href="/quizzes/<%= a_quiz.id %>">
+          Quiz #<%= a_quiz.id %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</article>
+
+<hr>

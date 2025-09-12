@@ -1,0 +1,96 @@
+<h1>
+  Quiz #<%= @the_quiz.id %> details
+</h1>
+
+<article>
+  <div>
+    <a href="/quizzes">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_quiz/<%= @the_quiz.id %>">
+      Delete quiz
+    </a>
+  </div>
+  <dl>
+    <dt>
+      Topic
+    </dt>
+    <dd>
+      <%= @the_quiz.topic %>
+    </dd>
+
+    <dt>
+      User
+    </dt>
+    <dd>
+      <%= @the_quiz.user_id %>
+    </dd>
+
+    <dt>
+      Score
+    </dt>
+    <dd>
+      <%= @the_quiz.score %>
+    </dd>
+
+    <dt>
+      Created at
+    </dt>
+    <dd>
+      <%= time_ago_in_words(@the_quiz.created_at) %> ago
+    </dd>
+
+    <dt>
+      Updated at
+    </dt>
+    <dd>
+      <%= time_ago_in_words(@the_quiz.updated_at) %> ago
+    </dd>
+  </dl>
+</article>
+
+<hr>
+
+
+<article>
+  <header>
+    <h2>
+      Edit quiz
+    </h2>
+  </header>
+
+  <form action="/modify_quiz/<%= @the_quiz.id %>"  method="post" >
+    <div>
+      <label for="topic_box">
+        Topic
+      </label>
+
+      <input type="text" id="topic_box" name="query_topic" value="<%= @the_quiz.topic %>">
+    </div>
+
+    <div>
+      <label for="user_id_box">
+        User
+      </label>
+
+      <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_quiz.user_id %>">
+    </div>
+
+    <div>
+      <label for="score_box">
+        Score
+      </label>
+
+      <input type="text" id="score_box" name="query_score" value="<%= @the_quiz.score %>">
+    </div>
+
+    <button type="submit">
+      Update quiz
+    </button>
+  </form>
+</article>
+
+<hr>
