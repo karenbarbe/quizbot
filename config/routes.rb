@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # Routes for the Message resource:
+  root to: "quizzes#index"
 
   # CREATE
   post("/insert_message", { :controller => "messages", :action => "create" })
