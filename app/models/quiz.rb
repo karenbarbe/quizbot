@@ -12,4 +12,7 @@
 class Quiz < ApplicationRecord
   has_many :messages, dependent: :destroy
   belongs_to :user
+
+  validates :topic, presence: true
+  validates :user_id, presence: true
 end

@@ -11,4 +11,8 @@
 #
 class Message < ApplicationRecord
   belongs_to :quiz
+
+  validates :content, presence: true
+  validates :role, presence: true
+  validates :quiz_id, presence: true
 end
