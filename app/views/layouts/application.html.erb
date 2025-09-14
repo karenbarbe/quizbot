@@ -25,38 +25,40 @@
   </head>
 
   <body class="pico">
-<header>
-  <div class="container-two-thirds">
-    <nav>
-      <ul>
-        <li>
-          <a href="/">
-            <strong>Quizbot</strong>
-          </a>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <a href="/users/sign_up">Sign up</a>
-        </li>
-        <li>
-          <a href="/users/sign_in">Sign in</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-    <main><div class="container-two-thirds"><%= yield %></div></main>
-<footer>
-  <div class="container-two-thirds">
-    <div class="grid text-center">
-      <div>
-        Powered by <a href="https://openai.com" target="_blank">OpenAI</a> and built with <a href="https://rubyonrails.org" target="_blank">Ruby on Rails</a>.
+    <header>
+      <div class="container-two-thirds">
+        <nav>
+          <ul>
+            <li>
+              <a href="/">
+                <strong>Quizbot</strong>
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a href="/users/sign_up">Sign up</a>
+            </li>
+            <li>
+              <a href="/users/sign_in">Sign in</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div>
-  </div>
-</footer>
+    </header>
+
+    <main>
+      <div class="container-two-thirds"><%= yield %></div>
+    </main>
+    <footer>
+      <div class="container-two-thirds">
+        <div class="grid text-center">
+          <div>
+            Powered by <a href="https://openai.com" target="_blank">OpenAI</a> and built with <a href="https://rubyonrails.org" target="_blank">Ruby on Rails</a>.
+          </div>
+        </div>
+      </div>
+    </footer>
 
   </body>
 </html>
