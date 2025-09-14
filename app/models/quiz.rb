@@ -10,4 +10,6 @@
 #  user_id    :integer
 #
 class Quiz < ApplicationRecord
+  has_many :messages, dependent: :destroy
+  belongs_to :user
 end

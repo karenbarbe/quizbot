@@ -10,4 +10,5 @@
 #  quiz_id    :integer
 #
 class Message < ApplicationRecord
+  belongs_to :quiz
 end
