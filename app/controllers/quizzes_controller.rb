@@ -20,8 +20,7 @@ class QuizzesController < ApplicationController
   def create
     the_quiz = Quiz.new
     the_quiz.topic = params.fetch("query_topic")
-    the_quiz.user_id = params.fetch("query_user_id")
-    the_quiz.score = params.fetch("query_score")
+    the_quiz.user_id = current_user.id
 
     if the_quiz.valid?
       the_quiz.save
