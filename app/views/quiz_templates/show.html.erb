@@ -14,7 +14,7 @@
       Delete quiz
     </a>
   </div>
-  
+
   <dl>
     <dt>
       Topic
@@ -37,17 +37,10 @@
       <%= time_ago_in_words(@the_quiz.created_at) %> ago
     </dd>
 
-    <dt>
-      Updated at
-    </dt>
-    <dd>
-      <%= time_ago_in_words(@the_quiz.updated_at) %> ago
-    </dd>
   </dl>
 </article>
 
 <hr>
-
 
 <article>
   <header>
@@ -56,35 +49,20 @@
     </h2>
   </header>
 
-  <form action="/modify_quiz/<%= @the_quiz.id %>"  method="post" >
-    <div>
-      <label for="topic_box">
-        Topic
-      </label>
+  <form action="/insert_message/"  method="post" >
 
-      <input type="text" id="topic_box" name="query_topic" value="<%= @the_quiz.topic %>">
-    </div>
+      <input type="hidden" id="quiz_id_box" name="query_quiz_id" value="<%= @the_quiz.id %>">
 
     <div>
-      <label for="user_id_box">
-        User
+      <label for="content_box">
+        Content
       </label>
-
-      <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_quiz.user_id %>">
-    </div>
-
-    <div>
-      <label for="score_box">
-        Score
-      </label>
-
-      <input type="text" id="score_box" name="query_score" value="<%= @the_quiz.score %>">
+      <textarea id="content_box" name="query_content"></textarea>
     </div>
 
     <button type="submit">
-      Update quiz
+      Create message
     </button>
   </form>
-</article>
 
-<hr>
+</article>
