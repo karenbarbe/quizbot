@@ -40,7 +40,13 @@
   </dl>
 </article>
 
-<hr>
+<ul>
+  <% existing_messages = @the_quiz.messages.order(:created_at) %>
+  <% existing_messages.each do |message| %>
+  
+    <li> <%=message.content %></li> 
+  <% end %>
+</ul>
 
 <article>
   <header>

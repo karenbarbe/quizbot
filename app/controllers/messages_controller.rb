@@ -25,7 +25,7 @@ class MessagesController < ApplicationController
 
     if the_message.valid?
       the_message.save
-    redirect_to("/quizzes#{the_message.quiz_id}", { :notice => "Message created successfully." })
+    redirect_to("/quizzes/#{the_message.quiz_id}", { :notice => "Message created successfully." })
     else
       redirect_to("/quizzes/#{the_message.quiz_id}", { :alert => the_message.errors.full_messages.to_sentence })
     end
