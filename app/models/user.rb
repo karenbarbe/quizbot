@@ -24,4 +24,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :quizzes
+
+  validates :username, presence: true
+  validates :username, uniqueness: true
 end
