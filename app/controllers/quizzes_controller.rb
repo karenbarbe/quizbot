@@ -24,7 +24,20 @@ class QuizzesController < ApplicationController
 
     if the_quiz.valid?
       the_quiz.save
-      redirect_to("/quizzes", { :notice => "Quiz created successfully." })
+
+      chat = AI::Chat.new
+      chat.system("You are an expert in #{the_quiz.topic}. Ask the user three questions to assess their proficiency in that topic. If they answer correctly, ask a harder question next. If they answer incorrectly, ask an easier question next. At the end, assign a score between 0 and 10.")
+      chat.user("Please assess my proficiency in #{the_quiz.topic}")
+      @ai_response = chat.generate!
+
+      message = Message.new
+      message.quiz_id = the_quiz.id
+      message.content = @ai_response
+      message.role = "assistant"
+      message.prev_model_response_id = chat.previous_response_id
+      message.save
+
+      redirect_to("/quizzes/#{the_quiz.id}", { :notice => "Quiz created successfully." })
     else
       redirect_to("/quizzes", { :alert => the_quiz.errors.full_messages.to_sentence })
     end

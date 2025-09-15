@@ -30,7 +30,7 @@
     <% @list_of_quizzes.each do |a_quiz| %>
       <li>
         <a href="/quizzes/<%= a_quiz.id %>">
-          Quiz #<%= a_quiz.id %>
+          <%= a_quiz.topic %>
         </a>
       </li>
     <% end %>
