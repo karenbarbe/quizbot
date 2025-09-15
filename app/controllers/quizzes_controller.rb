@@ -1,6 +1,6 @@
 class QuizzesController < ApplicationController
   def index
-    matching_quizzes = Quiz.all
+    matching_quizzes = current_user.quizzes
 
     @list_of_quizzes = matching_quizzes.order({ :created_at => :desc })
 
